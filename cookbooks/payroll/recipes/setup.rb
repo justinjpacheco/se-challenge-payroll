@@ -7,6 +7,7 @@ end
 package 'npm'
 package 'nginx'
 package 'python-dev'
+package 'nodejs-legacy'
 package 'python-virtualenv'
 package 'mysql-server'
 package 'libmysqlclient-dev'

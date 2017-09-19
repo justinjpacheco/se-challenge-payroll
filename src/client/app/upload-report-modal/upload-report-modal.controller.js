@@ -14,16 +14,16 @@
       var formData = new FormData();
       formData.append('file', file);
 
-			var request = {
-				method: 'POST',
-				url: '/api/payroll',
-				data: formData,
-				headers: {
-					'Content-Type': undefined
-				}
-			};
+      var request = {
+        method: 'POST',
+        url: '/api/payroll',
+        data: formData,
+        headers: {
+          'Content-Type': undefined
+        }
+      };
 
-			$http(request)
+      $http(request)
         .then(
           function(r) {
             $uibModalInstance.close();

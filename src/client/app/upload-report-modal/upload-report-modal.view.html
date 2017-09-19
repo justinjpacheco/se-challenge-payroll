@@ -1,0 +1,39 @@
+<form name="UploadForm" ng-submit="ctrl.upload()">
+  <div class="modal-header">
+    <h3 class="modal-title">
+      <span class="glyphicon glyphicon-circle-arrow-up text-primary"></span>
+      Upload Report
+    </h3>
+  </div>
+
+  <div class="modal-body text-center">
+    <style>
+			.inputfile {
+				position: absolute;
+				opacity: 0;
+			}
+    </style>
+    <input
+      id="payroll_report"
+      name="payroll_report"
+      type="file"
+      accept=".csv"
+      class="inputfile"
+      file-upload
+      required>
+
+    <label for="payroll_report" class="btn btn-default">
+      Select a Payroll Report
+    </label>
+    <div style="margin-top: 15px">
+      <span id="payroll_filename">No file selected</span>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <a class="btn btn-default" ng-click="ctrl.close()">Cancel</a>
+    <button type="submit" class="btn btn-primary" ng-disabled="ctrl.busy">
+      Upload
+    </button>
+  </div>
+</form>

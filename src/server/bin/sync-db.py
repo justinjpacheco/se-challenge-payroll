@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from payroll_schema import Base, JobGroups
+from payrolllib.schema import Base, JobGroups
 
 engine = create_engine('mysql://payroll:password@localhost/payroll')
 Base.metadata.create_all(engine)

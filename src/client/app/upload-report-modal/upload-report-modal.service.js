@@ -11,7 +11,7 @@
       var modal = $uibModal.open({
         size: 'sm',
         backdrop: 'static',
-        templateUrl: '/upload-report-modal.view.html',
+        template: require('./upload-report-modal.view.html'),
         controller: 'UploadReportModalCtrl',
         controllerAs: 'ctrl'
       });

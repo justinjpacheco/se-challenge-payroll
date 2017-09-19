@@ -10,7 +10,7 @@
       .when('/',{
         controllerAs: 'pc',
         controller: 'PayrollCtrl',
-        templateUrl: '/payroll.view.html',
+        template: require('./payroll/payroll.view.html'),
         resolve: {
           RouteResolve: function($q,$http) {
             var defer = $q.defer();

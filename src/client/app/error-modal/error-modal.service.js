@@ -11,7 +11,7 @@
       var modal = $uibModal.open({
         size: 'sm',
         backdrop: 'static',
-        templateUrl: '/error-modal.view.html',
+        template: require('./error-modal.view.html'),
         controller: 'ErrorModalCtrl',
         controllerAs: 'emc',
         resolve: {

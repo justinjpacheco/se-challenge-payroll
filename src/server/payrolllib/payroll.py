@@ -12,6 +12,9 @@ def dbh():
   return DBSession()
 
 def get():
+
+  data = {}
+  payroll = []
   session = dbh()
 
   query = (
@@ -28,8 +31,6 @@ def get():
       .first()
   )
 
-  payroll = []
-
   for t,j in query:
 
     payroll.append({
@@ -39,13 +40,14 @@ def get():
       'hourly_rate': j.hourly_rate
     })
 
-  data = {
-    'payroll': payroll,
-    'report': {
-      'id': report.id,
-      'created': report.created.isoformat()
+  if len(payroll) and report != None:
+    data = {
+      'payroll': payroll,
+      'report': {
+        'id': report.id,
+        'created': report.created.isoformat()
+      }
     }
-  }
 
   return data;
 

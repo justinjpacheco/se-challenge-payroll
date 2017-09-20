@@ -55,4 +55,4 @@ With Vagrant, VirtualBox and Chef you get the simplicity of bring up an entire s
 
 This works especially well in teams with multiple developers working on the same code base. Commit whatever change is needed to the automation scripts, ask everyone involved to pull down the new changes and rebuild their environment. Or better yet, package the new environment into a custom vagrant box and update the Vagrantfile pull down that box instead.
 
-It's such a simple and effective way to manage any kind of environment that people will wonder how they got along without it, **_I know I sure do_**.
+When all three are used together, they create such a simple and effective way to manage any kind of environment that people will wonder how they got along without them, **_I know I sure do_**.

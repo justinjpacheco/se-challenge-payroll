@@ -35,7 +35,6 @@ NFS is unable to mount encrypted directories
 git clone and cd into repository
 
 ```bash
-$ cd se-challenge-payroll.git
 $ vagrant up
 ```
 

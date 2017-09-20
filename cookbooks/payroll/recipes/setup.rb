@@ -35,7 +35,6 @@ bash 'create database' do
 end
 
 bash 'build client' do
-  user 'ubuntu'
   cwd '/vagrant/src/client'
   code <<-EOH
     set -e

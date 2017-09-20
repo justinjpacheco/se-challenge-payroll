@@ -1,0 +1,6 @@
+name             'payroll'
+maintainer       'Justin Pacheco'
+maintainer_email 'justinjpacheco@gmail.com'
+license          'BSD'
+description      'sets up and deploys payroll app/environment'
+version          '0.0.1'

@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8" style="float: none; margin: 0 auto;">
+      <h1 style="margin-bottom: 40px;">
+        Payroll Report
+        <button type="button" class="btn btn-xs btn-success" ng-click="pc.add_report()">
+          <span class="glyphicon glyphicon-plus"></span>
+        </button>
+      </h1>
+
+      <div ng-if="!pc.model.payroll.length" style="margin-top: 20pt;">
+        <h4 class="text-center">No reports found.</h4>
+      </div>
+
+      <div class="table-responsive" ng-if="pc.model.payroll.length">
+        <table class="table table-bordered table-striped">
+          <caption class="text-right">
+            Last updated:
+            {{pc.model.report_info.created | date:'yyyy-MM-dd HH:mm:ss'}}
+            (Report ID: {{pc.model.report_info.id}})
+          </caption>
+          <tr>
+            <th class="text-left">Employee ID</th>
+            <th class="text-center">Pay Period</th>
+            <th class="text-right">Amount Paid</th>
+          </tr>
+          <tr ng-repeat="p in pc.model.payroll | orderBy:employee_id track by $index">
+            <td class="text-left">{{p.employee_id}}</td>
+            <td class="text-center">{{p.pay_period}}</td>
+            <td class="text-right">{{p.amount | currency}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

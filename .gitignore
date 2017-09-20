@@ -1,0 +1,7 @@
+dist
+.vagrant
+*.log
+node_modules
+*.egg-info
+*.pyc
+*.swp

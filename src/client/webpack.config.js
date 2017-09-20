@@ -19,7 +19,7 @@ module.exports = {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, '../../dist/client/')
   },
-	module: {
+  module: {
     rules: [
       {
         test: /\.html$/,
@@ -44,6 +44,6 @@ module.exports = {
           'file-loader'
         ]
       }
-	 ]
-	}
+    ]
+  }
 };

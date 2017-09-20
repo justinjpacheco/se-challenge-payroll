@@ -24,11 +24,15 @@ def update_payroll():
 
   res = None
 
+  # check to make sure a file was uploaded
+  #
   if 'file' not in request.files:
     return make_response('No file uploaded',400)
 
   file = request.files['file']
 
+  # check that the file uploaded has the correct type (csv)
+  #
   if file.content_type != 'text/csv':
     return make_response('Incorrect content type (text/csv)',400)
 
@@ -37,6 +41,8 @@ def update_payroll():
   payroll_data = file.read().splitlines()
   report_id = payroll_data[-1].split(',')[1]
 
+  # check if this report id has been used before. exit if this is true
+  #
   if payroll.existing_report_id(report_id):
     error = {'reason': "Report ID {id} already exists".format(id=report_id)}
     res = make_response(json.dumps({'error':error}),400)
@@ -50,4 +56,5 @@ def update_payroll():
     res = make_response(json.dumps(e),400)
 
   res.headers['Content-Type'] = 'application/json'
+
   return res

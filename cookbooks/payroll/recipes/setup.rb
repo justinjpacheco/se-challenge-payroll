@@ -47,6 +47,14 @@ directory '/vagrant/dist/server' do
   recursive true
 end
 
+directory '/etc/payroll' do
+  recursive true
+end
+
+cookbook_file '/etc/payroll/payroll.conf' do
+  source 'payroll.conf'
+end
+
 cookbook_file '/tmp/db-sync.py' do
   source 'db-sync.py'
   notifies :run, 'bash[build and run server]', :immediately

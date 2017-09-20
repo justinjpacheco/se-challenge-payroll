@@ -2,11 +2,16 @@ import csv
 from datetime import datetime
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from ConfigParser import SafeConfigParser
 
 from payrolllib.schema import Base, JobGroups, TimeSheet, Reports
 
+config = SafeConfigParser()
+config.read('/etc/payroll/payroll.conf')
+
 def dbh():
-  engine = create_engine('mysql://payroll:password@localhost/payroll')
+  connection = config.get('database','connection')
+  engine = create_engine(connection)
   Base.metadata.bind = engine
   DBSession = sessionmaker(bind=engine)
   return DBSession()

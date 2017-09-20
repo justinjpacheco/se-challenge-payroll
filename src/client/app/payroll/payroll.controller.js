@@ -24,6 +24,9 @@
         );
     }
 
+    // if the backend returns with no payroll information, then we should
+    // show the upload form by default
+    //
     if (self.model.payroll.length === 0) {
       self.add_report();
     }
@@ -32,11 +35,14 @@
 
   function summarize_payroll(records) {
 
-    // initialize variable that we will return at the end
+    // initialize a tmp variable that we will help us organize the information
+    // coming from the api
     //
     var tmp = {};
     var payroll = [];
 
+    // loop over all the records and put the information in our tmp variable
+    //
     records.forEach(function(r) {
       var id = r.employee_id;
       var hours_worked = r.hours_worked;
@@ -54,6 +60,9 @@
       tmp[id][pay_period] += hours_worked * hourly_rate;
     });
 
+    // iterate over our tmp variable to create a list that we can loop over
+    // in the template
+    //
     for (var id in tmp) {
       for (var pay_period in tmp[id]) {
         payroll.push({

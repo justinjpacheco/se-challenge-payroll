@@ -1,9 +1,13 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-
+from ConfigParser import SafeConfigParser
 from payrolllib.schema import Base, JobGroups
 
-engine = create_engine('mysql://payroll:password@localhost/payroll')
+config = SafeConfigParser()
+config.read('/etc/payroll/payroll.conf')
+
+connection = config.get('database','connection')
+engine = create_engine(connection)
 Base.metadata.create_all(engine)
 Base.metadata.bind = engine
 

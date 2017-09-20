@@ -9,10 +9,10 @@
     return {
       restrict: 'A',
       link: function (scope, element, attrs) {
-				element[0].addEventListener('change', function(e) {
-					var filename = e.target.value.split('\\').pop();
+        element[0].addEventListener('change', function(e) {
+          var filename = e.target.value.split('\\').pop();
           document.getElementById('payroll_filename').innerHTML = filename;
-				});
+        });
       }
     };
   }

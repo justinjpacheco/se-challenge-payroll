@@ -14,6 +14,10 @@
       var formData = new FormData();
       formData.append('file', file);
 
+      // build the request that will be sent the backend for processing
+      // 'Content-Type': undefined enables us to let AngularJS figure out
+      // the correct content type based on the file
+      //
       var request = {
         method: 'POST',
         url: '/api/payroll',

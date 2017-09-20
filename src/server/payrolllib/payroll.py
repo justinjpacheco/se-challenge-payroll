@@ -2,24 +2,34 @@ import csv
 from datetime import datetime
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from ConfigParser import SafeConfigParser
 
 from payrolllib.schema import Base, JobGroups, TimeSheet, Reports
 
+config = SafeConfigParser()
+config.read('/etc/payroll/payroll.conf')
+
 def dbh():
-  engine = create_engine('mysql://payroll:password@localhost/payroll')
+  connection = config.get('database','connection')
+  engine = create_engine(connection)
   Base.metadata.bind = engine
   DBSession = sessionmaker(bind=engine)
   return DBSession()
 
 def get():
 
+  session = dbh()
+
+  # create the structure that will evetually be the data tha we return
+  # to the api
+  #
   data = {
     'payroll': [],
     'report': {}
   }
 
-  session = dbh()
-
+  # search for all the payroll records and the job groups that go with them
+  #
   query = (
     session
       .query(TimeSheet,JobGroups)
@@ -27,6 +37,8 @@ def get():
       .all()
   )
 
+  # get the latest report information to know when the system was last updated
+  #
   report = (
     session
       .query(Reports)
@@ -34,6 +46,8 @@ def get():
       .first()
   )
 
+  # populate our data structure with informatio from our queries
+  #
   for t,j in query:
 
     data['payroll'].append({

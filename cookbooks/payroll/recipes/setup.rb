@@ -54,7 +54,6 @@ end
 
 bash 'build and run server' do
   action :nothing
-  user 'ubuntu'
   cwd '/vagrant/dist/server'
   code <<-EOH
     set -e

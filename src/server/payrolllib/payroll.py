@@ -13,8 +13,11 @@ def dbh():
 
 def get():
 
-  data = {}
-  payroll = []
+  data = {
+    'payroll': [],
+    'report': {}
+  }
+
   session = dbh()
 
   query = (
@@ -33,20 +36,17 @@ def get():
 
   for t,j in query:
 
-    payroll.append({
+    data['payroll'].append({
       'employee_id': t.employee_id,
       'date': t.date.isoformat(),
       'hours_worked': t.hours_worked,
       'hourly_rate': j.hourly_rate
     })
 
-  if len(payroll) and report != None:
-    data = {
-      'payroll': payroll,
-      'report': {
-        'id': report.id,
-        'created': report.created.isoformat()
-      }
+  if len(data['payroll']) and report != None:
+    data['report'] = {
+      'id': report.id,
+      'created': report.created.isoformat()
     }
 
   return data;

@@ -18,7 +18,7 @@ Please install the following:
 Install NFS
 
 ```bash
-$ sudo apt install nfs-kernel-server, nfs-common
+$ sudo apt install nfs-kernel-server nfs-common
 ```
 
 Please install the following:

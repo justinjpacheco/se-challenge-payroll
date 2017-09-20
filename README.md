@@ -26,10 +26,7 @@ Download and Install the following:
 * https://releases.hashicorp.com/vagrant/2.0.0/vagrant_2.0.0_x86_64.deb
 * http://download.virtualbox.org/virtualbox/5.1.28/virtualbox-5.1_5.1.28-117968~Ubuntu~yakkety_amd64.deb
 
-**NOTE**
-
-You'll need to move this project out of your home directory if it is encrypted.
-NFS is unable to mount encrypted directories
+**NOTE**: You'll need to move this project out of your home directory if it is encrypted. NFS is unable to mount encrypted directories
 
 ## Building and running the application
 
@@ -39,9 +36,7 @@ git clone and cd into the repository
 $ vagrant up
 ```
 
-**NOTE**
-
-While Vagrant is bring up the virtual machine, it may ask for your password.
+**NOTE**: While Vagrant is bring up the virtual machine, it may ask for your password.
 Vagrant needs this to be able to modify the /etc/exports file to allow for NFS
 mounts into the guest virtual machine.
 

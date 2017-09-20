@@ -24,7 +24,7 @@ $ sudo apt install nfs-kernel-server nfs-common
 Download and Install the following:
 
 * https://releases.hashicorp.com/vagrant/2.0.0/vagrant_2.0.0_x86_64.deb
-* http://download.virtualbox.org/virtualbox/5.1.28/virtualbox-5.1_5.1.28-117968~Ubuntu~yakkety_amd64.deb
+* http://download.virtualbox.org/virtualbox/5.1.28/virtualbox-5.1_5.1.28-117968~Ubuntu~zesty_amd64.deb
 
 **NOTE**: You'll need to move this project out of your home directory if it is encrypted. NFS is unable to mount encrypted directories
 

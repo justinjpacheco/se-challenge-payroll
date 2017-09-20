@@ -1,11 +1,12 @@
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/css/bootstrap-theme.css';
-
 import 'angular'
 import 'angular-route'
 import 'angular-ui-bootstrap'
 import 'lodash'
 import 'moment'
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap-theme.css';
+
+import './assets/css/style.css'
 
 import './app/app.module'
 import './app/app.run'

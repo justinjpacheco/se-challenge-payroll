@@ -36,9 +36,7 @@ git clone and cd into the repository
 $ vagrant up
 ```
 
-**NOTE**: While Vagrant is bring up the virtual machine, it may ask for your password.
-Vagrant needs this to be able to modify the /etc/exports file to allow for NFS
-mounts into the guest virtual machine.
+**NOTE**: While Vagrant is bring up the virtual machine, it may ask you for your system password. Vagrant needs this to be able to modify the /etc/exports file to allow for NFS mounts into the guest virtual machine.
 
 Once vagrant is done, please visit http://localhost:8080
 

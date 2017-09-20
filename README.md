@@ -27,7 +27,8 @@ Download and Install the following:
 * http://download.virtualbox.org/virtualbox/5.1.28/virtualbox-5.1_5.1.28-117968~Ubuntu~yakkety_amd64.deb
 
 **NOTE**
-* You'll need to move this project out of your home directory if it is encrypted.
+
+You'll need to move this project out of your home directory if it is encrypted.
 NFS is unable to mount encrypted directories
 
 ## Building and running the application
@@ -39,6 +40,7 @@ $ vagrant up
 ```
 
 **NOTE**
+
 While Vagrant is bring up the virtual machine, it may ask for your password.
 Vagrant needs this to be able to modify the /etc/exports file to allow for NFS
 mounts into the guest virtual machine.
@@ -49,4 +51,8 @@ Once vagrant is done, please visit http://localhost:8080
 
 For this submission, I am particularly proud of a number of it's design aspects. Most notably would be its use of AngularJS as the front end framework, Python's virtualenv to for creating isolated Python environments, SQLAlchemy as the ORM and NPM with WebPack to manage the build and front-end assets. But what I am most proud of is its use of these three components: Vagrant, VirtualBox and Chef.
 
-With Vagrant, VirtualBox and Chef you get the simplicity of bring up an entire system with a single command (vagrant up), the reliably to reproduce the environment on any platform (VirtualBox) and a tool to automate the whole process (Chef). As a developer, I value these features because they allow me focus on what matters and not worry about building and maintaining my development environment. With this system I don't have to worry about making sure I'm on the correct version of Linux or OSX or even Windows. If something goes wrong and I need to redeploy my environment, I don't have to read through pages of outdated README files to get back to a working system. Just nuke the box (vagrant destroy -f) and redeploy (vagrant up). This works especially well in teams with multiple developers working on the same code base. Commit whatever change is needed to the automation scripts, ask everyone involved to pull down the new changes and rebuild their environment. Or better yet, package the new environment into a custom vagrant box and update the Vagrantfile pull down that box instead. It's such a simple and effective way to manage any kind of environment that people will wonder how they got along without, _I know I sure do_.
+With Vagrant, VirtualBox and Chef you get the simplicity of bring up an entire system with a single command (vagrant up), the reliably to reproduce the environment on any platform (VirtualBox) and a tool to automate the whole process (Chef). As a developer, I value these features because they allow me focus on what matters and not worry about building and maintaining my development environment. With this system I don't have to worry about making sure I'm on the correct version of Linux or OSX or even Windows. If something goes wrong and I need to redeploy my environment, I don't have to read through pages of outdated README files to get back to a working system. Just nuke the box (vagrant destroy -f) and redeploy (vagrant up).
+
+This works especially well in teams with multiple developers working on the same code base. Commit whatever change is needed to the automation scripts, ask everyone involved to pull down the new changes and rebuild their environment. Or better yet, package the new environment into a custom vagrant box and update the Vagrantfile pull down that box instead.
+
+It's such a simple and effective way to manage any kind of environment that people will wonder how they got along without it, **_I know I sure do_**.

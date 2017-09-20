@@ -18,13 +18,18 @@ def dbh():
 
 def get():
 
+  session = dbh()
+
+  # create the structure that will evetually be the data tha we return
+  # to the api
+  #
   data = {
     'payroll': [],
     'report': {}
   }
 
-  session = dbh()
-
+  # search for all the payroll records and the job groups that go with them
+  #
   query = (
     session
       .query(TimeSheet,JobGroups)
@@ -32,6 +37,8 @@ def get():
       .all()
   )
 
+  # get the latest report information to know when the system was last updated
+  #
   report = (
     session
       .query(Reports)
@@ -39,6 +46,8 @@ def get():
       .first()
   )
 
+  # populate our data structure with informatio from our queries
+  #
   for t,j in query:
 
     data['payroll'].append({
